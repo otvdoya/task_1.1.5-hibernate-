@@ -11,18 +11,16 @@ public class Main {
         UserService userService = new UserServiceImpl();
 
         userService.createUsersTable();
+
         userService.saveUser("Flea", "Flea", (byte)29);
         userService.saveUser("Anthony", "Kiedis", (byte)27);
         userService.saveUser("John", "Frusciante", (byte)27);
         userService.saveUser("Chad", "Smith", (byte)29);
 
-        for (int i = 0; i < userService.getAllUsers().size(); i++) {
-            System.out.println(userService.getAllUsers().get(i));
-        }
+        userService.getAllUsers().forEach(System.out::println);
 
         userService.cleanUsersTable();
+
         userService.dropUsersTable();
-
-
     }
 }
